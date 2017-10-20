@@ -1,22 +1,27 @@
 body {
-	background-image: url("../../assets/images/winnie1.jpg");
-	background-size: 100%;
-	min-height: 100%;
-	font-family: 'Pooh', cursive;
+	background: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	font-family: 'Pooh', 'Walter Turncoat', cursive;
 	font-weight: bold;
 }
 
 .main-area {
 	margin-top: 10%;
 	font-size: large;
-	/*font-family: 'Walter Turncoat', cursive;
-	font-weight: bold;*/
+}
+
+.img-answer {
+	height: 250px;
+	width: 450px;
 }
 
 .answer {
-	width: 33%;
+	width: 40%;
 	text-align: center;
-	margin: 2% 33.3%;
+	margin: 2% 30%;
 	padding-top: 7px;
 	height: 45px;
 	color: black;
@@ -36,52 +41,30 @@ body {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-	body {
-		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+@media only screen and (max-width: 768px) {
+	.answer {
+		width: 100%;
+		margin: 3% 0;
 	}
 }
 
-@media (min-width: @screen-sm-min) {
-	body {
-		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center bottom fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+@media (min-width: 768px) {
+	.answer {
+		width: 50%;
+		margin: 3% 25%;
 	}
 }
 
-@media (min-width: @screen-md-min) {
-	body {
-		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+@media (min-width: 992px;) {
+	.answer {
+		width: 50%;
+		margin: 3% 30%;
 	}
 }
 
-@media (min-width: @screen-lg-min) {
-	body {
-		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+@media (min-width: 1200px;) {
+	.answer {
+		width: 50%;
+		margin: 3% 30%;
 	}
 }
