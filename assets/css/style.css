@@ -1,0 +1,71 @@
+body {
+	background-image: url("../../assets/images/winnie1.jpg");
+	background-size: 100%;
+	min-height: 100%;
+	font-family: 'Pooh', cursive;
+	font-weight: bold;
+}
+
+.main-area {
+	margin-top: 10%;
+	font-size: large;
+	/*font-family: 'Walter Turncoat', cursive;
+	font-weight: bold;*/
+}
+
+@font-face {
+
+   font-family: 'Pooh' ;
+   src: url("../../assets/font/pooh.ttf") format('truetype');
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+	body {
+		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+}
+
+@media (min-width: @screen-sm-min) {
+	body {
+		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center bottom fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+}
+
+@media (min-width: @screen-md-min) {
+	body {
+		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+}
+
+@media (min-width: @screen-lg-min) {
+	body {
+		background-image: url("../../assets/images/winnie1.jpg") no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+}
