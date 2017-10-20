@@ -13,6 +13,10 @@ body {
 	font-size: large;
 }
 
+.page-header {
+	border-bottom: none;
+}
+
 .img-answer {
 	height: 250px;
 	width: 450px;
@@ -34,6 +38,10 @@ body {
   background: #ef7e1d;
 }
 
+.reset-button, .startBtn {
+	background-color: #70af9a;
+}
+
 @font-face {
 
    font-family: 'Pooh' ;
@@ -45,6 +53,11 @@ body {
 	.answer {
 		width: 100%;
 		margin: 3% 0;
+	}
+
+	.img-answer {
+		width: 100%;
+		height: 200px;
 	}
 }
 
