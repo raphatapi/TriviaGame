@@ -1,4 +1,4 @@
-// Create a jQery prototype to make it easier to use it later
+// Set variables
 var questions = ["Who is the character that lives under sticks?", "Who is Pooh Bear's best friend?", "What is Winnie the Pooh's favorite food?", "Who is Lumpy?", "Which character grows lots of vegetables in his garden?", "What is Tigger's Favorite Thing to Do?", "Which character is wise?", "Who calls Pooh a 'Silly old bear'?", "In which wood do Pooh and his friends have their adventures?", "What are the Hundred Acre Wood gang afraid of?"];
 var choices = [["Winnie The Pooh", "Kanga", "Eeyore", "Tigger"], ["Piglet", "Rabbit", "Roo", "Owl"], ["Thistles", "Carrots", "Rutabaga", "Honey"], ["A monster", "The baby Heffalump", "The camel", "The Hunchback of Notre Dame"], ["Rabbit", "Piglet", "Eeyore", "Christopher Robin"], ["Make his bed", "Wash dishes", "Bounce", "Put toys away"], ["Winnie The Pooh", "Roo", "Owl", "Tigger"], ["Piglet", "Owl", "Kanga", "Christopher Robin"], ["Muir Woods", "Hundred Acre Wood", "Redwood", "Thistles Wood"], ["The Backson", "Snow", "Bees", "Roller Coasters"]];
 var images = ["<img class='center-block img-eeyore' src='assets/images/eeyore.gif'>", "<img class='center-block img-piglet' src='assets/images/piglet.gif'>", "<img class='center-block img-honey' src='assets/images/honey.gif'>", "<img class='center-block img-lumpy' src='assets/images/lumpy.gif'>", "<img class='center-block img-rabbit' src='assets/images/rabbit.gif'>", "<img class='center-block img-bounce' src='assets/images/bounce.gif'>", "<img class='center-block img-owl' src='assets/images/owl.gif'>", "<img class='center-block img-cr' src='assets/images/christopher_robin.gif'>", "<img class='center-block img-haw' src='assets/images/haw.gif'>", "<img class='center-block img-backson' src='assets/images/backson.gif'>"];
@@ -28,8 +28,11 @@ $(document).ready(function() {
 		timerTrivia();
 	});
 
+    //HEY PAUL CAN YOU HELP ME? SOMETHING WITH THE CONDITION THAT IS DEFAULTING TO ELSE
     $("body").on("click", ".answer", function(event){
         selectedAnswer = $(this).text();
+        console.log(typeof selectedAnswer, selectedAnswer, correct[currentQuestion], typeof correct[currentQuestion]);
+        console.log(selectedAnswer === correct[currentQuestion])
         if (selectedAnswer === correct[currentQuestion]) { //SOMETHING WRONG HERE!
  			// alert("correct");
  			triviaWin();
@@ -40,7 +43,7 @@ $(document).ready(function() {
             clearInterval(timer);
             triviaLoss();
         };
-        // console.log(correct[currentQuestion]);
+        // console.log(typeof selectedAnswer);
     });
 
     $("body").on("click", ".reset-button", function(event) {
@@ -64,13 +67,13 @@ function triviaWin() {
 
 function triviaLoss() {
     wrongAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: "+ correct[currentQuestion] + "</p>" + "<img class='center-block img-sad' src='assets/images/wrong.gif'>";
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-sad' src='assets/images/wrong.gif'>";
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
 };
 
 function gameHTML() {
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p><p class='answer'>A. " + choices[currentQuestion][0] + "</p><p class='answer'>B. "+ choices[currentQuestion][1] + "</p><p class='answer'>C. "+ choices[currentQuestion][2] + "</p><p class='answer'>D. "+ choices[currentQuestion][3] + "</p>";
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p><p class='answer'>" + choices[currentQuestion][0] + "</p><p class='answer'>" + choices[currentQuestion][1] + "</p><p class='answer'>" + choices[currentQuestion][2] + "</p><p class='answer'>" + choices[currentQuestion][3] + "</p>";
     $(".main-area").html(triviaHTML);
 };
 

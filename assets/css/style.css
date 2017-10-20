@@ -14,11 +14,14 @@ body {
 }
 
 .answer {
+	width: 33%;
+	text-align: center;
+	margin: 2% 33.3%;
 	padding-top: 7px;
 	height: 45px;
 	color: black;
 	padding-left: 14px;
-	background-color: #efad33;
+	background-color: #70af9a;
 	border-radius: 4px;
 }
 
