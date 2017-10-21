@@ -30,8 +30,6 @@ $(document).ready(function() {
 		timerTrivia();
 	});
 
-    
-
     $(".reset-button").on("click", function(event) {
         resetTrivia();
     });
@@ -39,48 +37,62 @@ $(document).ready(function() {
 
 function triviaTimeOut() {
 	wrongAnswers++;
-	triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-sad' src='assets/images/wrong.gif'>";
-	$(".main-area").html(triviaHTML);
-	setTimeout(wait, 4000);
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>";
+    $(".main-area").html(triviaHTML);
+    setTimeout(wait, 4000);
+    var loss = $("<p>");
+    loss.addClass("text-center");
+    loss.text("You ran out of time!  The correct answer is: " + correct[currentQuestion]);
+    $(".main-area").append(loss);
+    var lossImg = $("<img>");
+    lossImg.addClass("center-block img-answer");
+    lossImg.attr("src", "assets/images/wrong.gif");
+    $(".main-area").append(lossImg);
+	// wrongAnswers++;
+	// triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-sad' src='assets/images/wrong.gif'>";
+	// $(".main-area").html(triviaHTML);
+	// setTimeout(wait, 4000);
 }
 
 function triviaWin() {
     correctAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" +
-     counter + 
-    "</span></p>" +
-     "<p class='text-center'>Hooray! The answer is: " +
-      correct[currentQuestion] +
-       "</p>" +
-        images[currentQuestion];
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>";
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
+    var win = $("<p>");
+    win.addClass("text-center");
+    win.text("Hooray! The answer is: " + correct[currentQuestion]);
+    $(".main-area").append(win);
+    $(".main-area").append(images[currentQuestion]);
 };
 
 function triviaLoss() {
     wrongAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Oh, Bother! The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-answer' src='assets/images/wrong.gif'>";
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>";
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
+    var loss = $("<p>");
+    loss.addClass("text-center");
+    loss.text("Oh, Bother! The correct answer is: " + correct[currentQuestion]);
+    $(".main-area").append(loss);
+    var lossImg = $("<img>");
+    lossImg.addClass("center-block img-answer");
+    lossImg.attr("src", "assets/images/wrong.gif");
+    $(".main-area").append(lossImg);
 };
 
 function gameHTML() {
-	// $(".timer-p")
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p>";
+	triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p>";
     $(".main-area").html(triviaHTML);  
     for (var i = 0; i < 4; i++) {
     	var answerBtn = $("<button>");
     	answerBtn.addClass("text-center btn btn-warning btn-lg answer");
     	answerBtn.text(choices[currentQuestion][i]);
-    	
     	$(".main-area").append(answerBtn);
     }
 
     $(".answer").on("click", function(event){
         selectedAnswer = $(this).text();
-        console.log(this);
-        console.log(typeof selectedAnswer, selectedAnswer, correct[currentQuestion], typeof correct[currentQuestion]);
-        console.log(selectedAnswer === correct[currentQuestion])
         if (selectedAnswer === correct[currentQuestion]) {
  			triviaWin();
  			clearInterval(timer);
@@ -90,17 +102,6 @@ function gameHTML() {
             triviaLoss();
         };
     });
-    
-    //  +
-    //   "</p><p class='answer'>" +
-    //    choices[currentQuestion][0] +
-    //     "</p><p class='answer'>" +
-    //      choices[currentQuestion][1] +
-    //       "</p><p class='answer'>" +
-    //        choices[currentQuestion][2] +
-    //         "</p><p class='answer'>" +
-    //          choices[currentQuestion][3] + "</p>";
-    
 };
 
 function wait() {
