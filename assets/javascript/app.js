@@ -60,14 +60,14 @@ function triviaTimeOut() {
 
 function triviaWin() {
     correctAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Correct! The answer is: " + correct[currentQuestion] + "</p>" + images[currentQuestion];
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Hooray! The answer is: " + correct[currentQuestion] + "</p>" + images[currentQuestion];
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
 };
 
 function triviaLoss() {
     wrongAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Wrong! The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-answer' src='assets/images/wrong.gif'>";
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Oh, Bother! The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-answer' src='assets/images/wrong.gif'>";
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
 };
@@ -104,7 +104,7 @@ function timerTrivia() {
 };
 
 function results() {
-	triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<h2 class='text-center'>Here's how you did!" + "</h2>" + "<p class='summary-correct text-center'>Correct Answers: " + correctAnswers + "</p>" + "<p class='text-center'>Wrong Answers: " + wrongAnswers + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-warning btn-lg reset-button' href='#' role='button'>Play Again!</a></p>";
+	triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<h2 class='text-center'>And the results are..." + "</h2>" + "<p class='summary-correct text-center'>Correct Answers: " + correctAnswers + "</p>" + "<p class='text-center'>Wrong Answers: " + wrongAnswers + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-warning btn-lg reset-button' href='#' role='button'>Play Again!</a></p>";
 	$(".main-area").html(triviaHTML);
 };
 
