@@ -20,37 +20,19 @@ $(document).ready(function() {
 		startTrivia = $("<button>");
 		startTrivia.addClass("text-center btn btn-warning btn-lg startBtn");
 		startTrivia.text("Start Trivia");
-		// "<p class='text-center main-button-container'>
-		// <a class='btn btn-warning btn-lg startBtn' href='#' role='button'>Start Trivia</a></p>";
 		$(".main-area").html(startTrivia);
 	};
 
 	greeting();
 
-    $("body").on("click", ".startBtn", function(event){
+    $(".startBtn").on("click", function(event){
 		gameHTML();
 		timerTrivia();
 	});
 
-    //HEY PAUL CAN YOU HELP ME? SOMETHING WITH THE CONDITION THAT IS DEFAULTING TO ELSE
-    $("body").on("click", ".answer", function(event){
-        selectedAnswer = $(this).text();
-        console.log(typeof selectedAnswer, selectedAnswer, correct[currentQuestion], typeof correct[currentQuestion]);
-        console.log(selectedAnswer === correct[currentQuestion])
-        if (selectedAnswer === correct[currentQuestion]) { //SOMETHING WRONG HERE!
- 			// alert("correct");
- 			triviaWin();
- 			clearInterval(timer);
-          
-        } else {
-        	// alert("wrong");
-            clearInterval(timer);
-            triviaLoss();
-        };
-        // console.log(typeof selectedAnswer);
-    });
+    
 
-    $("body").on("click", ".reset-button", function(event) {
+    $(".reset-button").on("click", function(event) {
         resetTrivia();
     });
 });
@@ -64,7 +46,13 @@ function triviaTimeOut() {
 
 function triviaWin() {
     correctAnswers++;
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>Hooray! The answer is: " + correct[currentQuestion] + "</p>" + images[currentQuestion];
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" +
+     counter + 
+    "</span></p>" +
+     "<p class='text-center'>Hooray! The answer is: " +
+      correct[currentQuestion] +
+       "</p>" +
+        images[currentQuestion];
     $(".main-area").html(triviaHTML);
     setTimeout(wait, 4000);
 };
@@ -77,8 +65,42 @@ function triviaLoss() {
 };
 
 function gameHTML() {
-    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p><p class='answer'>" + choices[currentQuestion][0] + "</p><p class='answer'>" + choices[currentQuestion][1] + "</p><p class='answer'>" + choices[currentQuestion][2] + "</p><p class='answer'>" + choices[currentQuestion][3] + "</p>";
-    $(".main-area").html(triviaHTML);
+	// $(".timer-p")
+    triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>30</span></p><p class='text-center'>" + questions[currentQuestion] + "</p>";
+    $(".main-area").html(triviaHTML);  
+    for (var i = 0; i < 4; i++) {
+    	var answerBtn = $("<button>");
+    	answerBtn.addClass("text-center btn btn-warning btn-lg answer");
+    	answerBtn.text(choices[currentQuestion][i]);
+    	
+    	$(".main-area").append(answerBtn);
+    }
+
+    $(".answer").on("click", function(event){
+        selectedAnswer = $(this).text();
+        console.log(this);
+        console.log(typeof selectedAnswer, selectedAnswer, correct[currentQuestion], typeof correct[currentQuestion]);
+        console.log(selectedAnswer === correct[currentQuestion])
+        if (selectedAnswer === correct[currentQuestion]) {
+ 			triviaWin();
+ 			clearInterval(timer);
+          
+        } else {
+            clearInterval(timer);
+            triviaLoss();
+        };
+    });
+    
+    //  +
+    //   "</p><p class='answer'>" +
+    //    choices[currentQuestion][0] +
+    //     "</p><p class='answer'>" +
+    //      choices[currentQuestion][1] +
+    //       "</p><p class='answer'>" +
+    //        choices[currentQuestion][2] +
+    //         "</p><p class='answer'>" +
+    //          choices[currentQuestion][3] + "</p>";
+    
 };
 
 function wait() {
