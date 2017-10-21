@@ -40,6 +40,7 @@ body {
 
 .reset-button, .startBtn {
 	background-color: #70af9a;
+	margin: 5% 41%;
 }
 
 @font-face {

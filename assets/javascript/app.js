@@ -17,7 +17,11 @@ var startTrivia;
 $(document).ready(function() {
 
     function greeting() {
-		startTrivia = "<p class='text-center main-button-container'><a class='btn btn-warning btn-lg startBtn' href='#' role='button'>Start Trivia</a></p>";
+		startTrivia = $("<button>");
+		startTrivia.addClass("text-center btn btn-warning btn-lg startBtn");
+		startTrivia.text("Start Trivia");
+		// "<p class='text-center main-button-container'>
+		// <a class='btn btn-warning btn-lg startBtn' href='#' role='button'>Start Trivia</a></p>";
 		$(".main-area").html(startTrivia);
 	};
 
