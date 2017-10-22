@@ -10,9 +10,8 @@ var wrongAnswers = 0;
 var timer;
 var counter = 30;
 var triviaHTML;
-var startTrivia; 
-
-
+var startTrivia;
+var resetTrivia; 
 
 $(document).ready(function() {
 
@@ -30,9 +29,7 @@ $(document).ready(function() {
 		timerTrivia();
 	});
 
-    $(".reset-button").on("click", function(event) {
-        resetTrivia();
-    });
+
 });
 
 function triviaTimeOut() {
@@ -48,10 +45,6 @@ function triviaTimeOut() {
     lossImg.addClass("center-block img-answer");
     lossImg.attr("src", "assets/images/wrong.gif");
     $(".main-area").append(lossImg);
-	// wrongAnswers++;
-	// triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<p class='text-center'>You ran out of time!  The correct answer is: " + correct[currentQuestion] + "</p>" + "<img class='center-block img-sad' src='assets/images/wrong.gif'>";
-	// $(".main-area").html(triviaHTML);
-	// setTimeout(wait, 4000);
 }
 
 function triviaWin() {
@@ -131,10 +124,23 @@ function timerTrivia() {
 };
 
 function results() {
-	triviaHTML = "<p class='text-center timer-p'>Time Remaining: <span class='timer'>" + counter + "</span></p>" + "<h2 class='text-center'>And the results are..." + "</h2>" + "<p class='summary-correct text-center'>Correct Answers: " + correctAnswers + "</p>" + "<p class='text-center'>Wrong Answers: " + wrongAnswers + "</p>" + "<p class='text-center reset-button-container'><a class='btn btn-warning btn-lg reset-button' href='#' role='button'>Play Again!</a></p>";
-	$(".main-area").html(triviaHTML);
+		resetTrivia = $("<button>");
+		resetTrivia.addClass("text-center btn btn-warning btn-lg resetBtn");
+		resetTrivia.text("Play Again!");
+		$(".main-area").html(resetTrivia);
+		resetTitle = $("<h2>");
+		resetTitle.addClass("text-center").text("And the results are...");
+		$(".main-area").append(resetTitle);
+		var summaryCorrect = $("<p>");
+		summaryCorrect.addClass("text-center").text("Correct Answers: " + correctAnswers);
+		$(".main-area").append(summaryCorrect);
+		var summaryWrong = $("<p>");
+		summaryWrong.addClass("text-center").text("Wrong Answers: " + wrongAnswers);
+		$(".main-area").append(summaryWrong);
+
+		$(".resetBtn").on("click", function(event) {
+        	window.location.reload();
+    	});	
 };
 
-function resetTrivia() {
-	window.location.reload();
-};
+results();

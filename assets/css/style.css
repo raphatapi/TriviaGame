@@ -23,24 +23,17 @@ body {
 }
 
 .answer {
-	width: 40%;
-	text-align: center;
-	margin: 2% 30%;
-	padding-top: 7px;
-	height: 45px;
 	color: black;
-	padding-left: 14px;
 	background-color: #70af9a;
-	border-radius: 4px;
 }
 
 .answer:hover {
   background: #ef7e1d;
 }
 
-.reset-button, .startBtn {
+.resetBtn, .startBtn {
 	background-color: #70af9a;
-	margin: 5% 41%;
+	margin: 3% 41%;
 }
 
 @font-face {
@@ -58,14 +51,18 @@ body {
 
 	.img-answer {
 		width: 100%;
-		height: 200px;
+		height: auto;
+	}
+
+	.resetBtn, .startBtn {
+		margin: 5% 40% 5% 30%;
 	}
 }
 
 @media (min-width: 768px) {
 	.answer {
 		width: 50%;
-		margin: 3% 25%;
+		margin: 1% 25%;
 	}
 }
 
