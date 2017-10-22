@@ -33,7 +33,7 @@ body {
 
 .resetBtn, .startBtn {
 	background-color: #70af9a;
-	margin: 3% 41%;
+	margin: 3% 42%;
 }
 
 @font-face {
@@ -55,7 +55,7 @@ body {
 	}
 
 	.resetBtn, .startBtn {
-		margin: 5% 40% 5% 30%;
+		margin: 5% 42%;
 	}
 }
 
